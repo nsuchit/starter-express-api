@@ -10,6 +10,18 @@ const API_KEY = process.env.API_KEY;
 const bot = new TelegramBot(API_KEY, {polling: true});
 console.log("Your bot is on");
 const access_key_debank = process.env.API_Debank;
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.get('/', (req, res) => {
+  res.send('Bot is running');
+});
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
+
 
 const networks = {
     "ETH": "60'",
@@ -163,6 +175,8 @@ bot.on('message', (message) => {
     processNextMessage();
   }
 });
+
+
 
 
   
